@@ -1,5 +1,4 @@
 import sys
-import os
 
 def max_difference(file1, file2):
     try:
@@ -15,20 +14,15 @@ def max_difference(file1, file2):
         return str(e)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: python script.py file1 file2 output_folder")
-        sys.exit(1)
-    output_folder = sys.argv[1]
-    file1 = sys.argv[2]
-    file2 = sys.argv[3]
+    if len(sys.argv) != 3:
+            print("Usage: python script.py file1 file2")
+            sys.exit(1)
+
+    file1 = sys.argv[1]
+    file2 = sys.argv[2]
 
     result = max_difference(file1, file2)
 
-    # Create the output folder if it doesn't exist
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-
-    # Create a file for the output in the specified folder
-    with open(output_folder, 'w') as f:
+    # Create a file for the output
+    with open("output.txt", 'w') as f:
         f.write(str(result) + '\n')
-    
